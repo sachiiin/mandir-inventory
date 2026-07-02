@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HariPrabodham Canada</title>
+
+<!-- Favicon (browser tab icon) — uses the same image as the main logo.
+     Tip: for the sharpest result, add a square PNG named favicon.png to the
+     images folder and change the paths below to "images/favicon.png". -->
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:      #FBF5E9;   /* warm sandalwood page background */
+    --paper-2:    #F2E7D1;   /* niche / card frame background   */
+    --ink:        #2B2117;   /* main text (warm near-black)     */
+    --ink-soft:   #6E6049;   /* secondary text                  */
+    --saffron:    #DD8E2B;   /* marigold / saffron accent       */
+    --maroon:     #7C2230;   /* deep kumkum red                 */
+    --gold:       #C39B49;   /* fine gold detail                */
+    --gold-soft:  rgba(195,155,73,0.40);
+    --line:       rgba(124,34,48,0.16);
+    --shadow:     rgba(43,33,23,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Mukta", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, rgba(221,142,43,0.07), transparent 60%);
+  }
+
+  .wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 22px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  .masthead {
+    text-align: center;
+    padding: 52px 0 26px;
+  }
+
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 16px;
+    display: block;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin: 0 0 14px;
+  }
+
+  .site-title {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.1;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .stats {
+    margin: 16px 0 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .stats b { color: var(--maroon); font-weight: 600; }
+
+  /* ---------- Category tabs + search (one row) ---------- */
+  .controls {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px 24px;
+    flex-wrap: wrap;
+    margin: 6px 0 40px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 2px 6px;
+    flex: 1 1 auto;
+    margin: 0;
+  }
+  .tab {
+    position: relative;
+    font-family: "Mukta", sans-serif;
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .16s ease;
+  }
+  .tab:hover { color: var(--maroon); }
+  .tab.active { color: var(--maroon); }
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    left: 16px; right: 16px; bottom: -15px;
+    height: 2px;
+    background: linear-gradient(to right, var(--saffron), var(--gold));
+    border-radius: 2px;
+  }
+
+  /* ---------- Search ---------- */
+  .toolbar {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+  .search {
+    width: 300px;
+    max-width: 100%;
+    position: relative;
+  }
+  .search input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 12px 18px 12px 44px;
+    outline: none;
+    transition: border-color .18s ease, box-shadow .18s ease;
+  }
+  .search input::placeholder { color: #b3a791; }
+  .search input:focus {
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 4px rgba(221,142,43,0.16);
+  }
+  .search svg {
+    position: absolute;
+    left: 16px; top: 50%;
+    transform: translateY(-50%);
+    width: 17px; height: 17px;
+    color: #b3a791;
+    pointer-events: none;
+  }
+
+  /* ---------- Grid of items ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+    gap: 30px 26px;
+  }
+
+  .item {
+    text-align: left;
+    animation: rise .5s ease both;
+    cursor: pointer;
+    border-radius: 16px;
+  }
+  .item:focus-visible {
+    outline: 2px solid var(--saffron);
+    outline-offset: 6px;
+  }
+
+  /* square image, rounded corners, no border around the card */
+  .photo-frame {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 22px -16px var(--shadow);
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .item:hover .photo-frame {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px -18px var(--shadow);
+  }
+
+  .photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: inherit;
+    background: #ece0c8;
+  }
+
+  /* small badge shown when an item has more than one photo */
+  .photo-count {
+    position: absolute;
+    top: 8px; right: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: rgba(43,33,23,0.58);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  .photo-frame.no-photo .photo { display: none; }
+  .photo-frame.no-photo::after {
+    content: attr(data-letter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: inherit;
+    background: linear-gradient(160deg, #efe3ca, #e6d6b6);
+    font-family: "Marcellus", serif;
+    font-size: 2.6rem;
+    color: var(--maroon);
+    opacity: 0.7;
+  }
+
+  .item-name {
+    font-family: "Marcellus", serif;
+    font-size: 1.18rem;
+    margin: 14px 0 4px;
+    color: var(--ink);
+  }
+
+  /* description clamped to two lines */
+  .item-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0 0 3px;
+    font-weight: 300;
+  }
+  .see-more {
+    display: none;            /* turned on by script only when text is cut off */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 0 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--maroon);
+    cursor: pointer;
+  }
+  .see-more:hover { color: var(--saffron); text-decoration: underline; }
+
+  /* quantity (left aligned with the rest of the card) */
+  .qty {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--maroon);
+    background: rgba(221,142,43,0.14);
+    border: 1px solid var(--gold-soft);
+    border-radius: 999px;
+    padding: 4px 13px;
+  }
+  .qty b { font-weight: 600; }
+
+  /* ---------- Empty state ---------- */
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-soft);
+    display: none;
+  }
+  .empty .empty-title {
+    font-family: "Marcellus", serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+
+  /* ---------- Footer ---------- */
+  .foot {
+    text-align: center;
+    margin-top: 64px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Product detail popup ---------- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(43,33,23,0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+
+  .modal {
+    position: relative;
+    width: min(440px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 34px 28px 32px;
+    text-align: center;
+    background: var(--paper);
+    border-radius: 18px;
+    box-shadow: 0 30px 70px -28px rgba(43,33,23,0.65);
+    transform: translateY(12px) scale(.97);
+    transition: transform .22s ease;
+  }
+  .modal-overlay.open .modal { transform: none; }
+
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+    color: var(--maroon);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .modal-close:hover { background: var(--paper-2); transform: rotate(90deg); }
+
+  .modal .photo-frame {
+    max-width: 300px;
+    margin: 4px auto 0;
+  }
+
+  .m-thumbs {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 300px;
+    margin: 12px auto 0;
+  }
+  .m-thumb {
+    width: 52px; height: 52px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    background: none;
+    cursor: pointer;
+  }
+  .m-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .m-thumb.active { border-color: var(--saffron); }
+
+  /* download buttons in the popup */
+  .m-actions {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px auto 0;
+  }
+  .m-download, .m-download-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 9px 16px;
+    border-radius: 999px;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .m-download {
+    color: #fff;
+    background: var(--maroon);
+    border: 1px solid var(--maroon);
+  }
+  .m-download:hover { background: #6a1c28; }
+  .m-download svg { width: 15px; height: 15px; }
+  .m-download-all {
+    color: var(--maroon);
+    background: transparent;
+    border: 1px solid var(--gold-soft);
+  }
+  .m-download-all:hover { background: rgba(221,142,43,0.12); }
+
+  /* tappable popup photo + full-size image viewer (lightbox) */
+  .modal .photo { cursor: zoom-in; }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(20,14,8,0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+    cursor: zoom-out;
+  }
+  .lightbox.open { opacity: 1; visibility: visible; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background .15s ease;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+  .m-cat {
+    margin: 22px 0 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+  .m-name {
+    font-family: "Marcellus", serif;
+    font-size: 1.7rem;
+    margin: 6px 0 14px;
+    color: var(--ink);
+  }
+  .m-desc {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0 auto 18px;
+    max-width: 34ch;
+    font-weight: 300;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  a:focus-visible, input:focus-visible, button:focus-visible {
+    outline: 2px solid var(--saffron);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, .item { animation: none !important; transition: none !important; }
+  }
+  @media (max-width: 640px) {
+    .controls { flex-direction: column; align-items: stretch; }
+    .tabs { justify-content: center; }
+    .toolbar { width: 100%; }
+    .search { width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 22px 16px; }
+    .masthead { padding-top: 38px; }
+    .tab { padding: 8px 11px; font-size: 0.9rem; }
+    .tab.active::after { left: 11px; right: 11px; }
+  }
+</style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="masthead">
+	<!--
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+        <polygon points="24,5 41,35 7,35"  fill="#DD8E2B" opacity="0.9"/>
+        <polygon points="24,43 7,13 41,13" fill="#7C2230" opacity="0.78"/>
+        <circle cx="24" cy="24" r="3.4" fill="#C39B49"/>
+      </svg>
+	-->
+      <!-- /LOGO --> <img class="logo" src="images/logo.png" alt="Logo"> 
+
+      <p class="eyebrow" id="eyebrow">Mandir Inventory</p>
+      <h1 class="site-title" id="siteTitle">HariPrabodham Canada</h1>
+      <p class="stats" id="stats"></p>
+    </header>
+
+    <div class="controls">
+      <nav class="tabs" id="tabs" aria-label="Item categories"></nav>
+
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input id="search" type="search" placeholder="Search items…" aria-label="Search items" autocomplete="off">
+        </label>
+      </div>
+    </div>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+
+    <div class="empty" id="empty">
+      <p class="empty-title">Nothing to show here</p>
+      <p>Try another category, or clear the search box to see everything.</p>
+    </div>
+
+    <footer class="foot">
+      <p>Maintained with Atmiyata · Jai Swaminarayan, Das Na Das</p>
+    </footer>
+
+    <!-- Product detail popup (hidden until an item is clicked) -->
+    <div class="modal-overlay" id="modal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-name">
+        <button class="modal-close" id="m-close" aria-label="Close">&#10005;</button>
+        <div class="photo-frame" id="m-frame" data-letter="">
+          <img class="photo" id="m-photo" alt="">
+        </div>
+        <div class="m-thumbs" id="m-thumbs"></div>
+        <div class="m-actions" id="m-actions"></div>
+        <p class="m-cat" id="m-cat"></p>
+        <h2 class="m-name" id="m-name"></h2>
+        <p class="m-desc" id="m-desc"></p>
+        <span class="qty" id="m-qty"></span>
+      </div>
+    </div>
+
+    <!-- Full-size image viewer (opens when the popup photo is tapped) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lb-close" aria-label="Close">&#10005;</button>
+      <img id="lb-img" alt="">
+    </div>
+  </main>
+
+<script>
+/* ===========================================================================
+   ★ EDIT YOUR ITEMS HERE ★
+   ---------------------------------------------------------------------------
+   Each item needs five things:
+     name        – what the item is called
+     description – a short sentence about it
+     quantity    – how many there are (a number)
+     category    – which tab it belongs under (must match CATEGORIES below)
+     photo       – path to ONE picture, e.g. "images/paduka.jpg"
+                   To show SEVERAL photos, use "photos" instead of "photo":
+                     photos: ["images/a.jpg", "images/b.jpg", "images/c.jpg"]
+                   (extra photos appear in the popup when the item is opened)
+   =========================================================================== */
+
+const SITE_SUBTITLE = "Mandir Inventory";   // small line above the heading
+const SITE_TITLE    = "HariPrabodham Canada";   // big heading at the top
+
+// The tabs across the top. The "All" tab is added automatically.
+const CATEGORIES = [
+  "Guruhari Prasadi Items",
+  "Guruhari Use Items",
+  "Santo Use Items",
+  "Thaal",
+  "Others"
+];
+
+const PRODUCTS = [
+  {
+    name: "Prasadi Haar",
+    description: "26 July 2025 na roj Natan Mandir na Bhoomi Poojan Haar",
+    quantity: 1,
+    category: "Guruhari Prasadi Items",
+    photos: ["images/prasadi-haar1.jpeg", "images/Rumal-Patharnu.jpeg", "images/Towel-Patharnu.jpeg"]
+  },
+  {
+    name: "Rumal-Patharnu",
+    description: "01 August 2025 Ambrish Diksha na roj Thakorji Snan baad, Patharnu and Thakorji Luchelo Rumal.",
+    quantity: 1,
+    category: "Guruhari Prasadi Items",
+    photo: "images/Rumal-Patharnu.jpeg"
+  },
+  {
+    name: "Towel-Patharnu",
+    description: "01 August 2025 Ambrish Diksha na roj Guruhari Snan baad, Patharnu and Guruhari ae Use karelo Towel.",
+    quantity: 1,
+    category: "Guruhari Prasadi Items",
+    photo: "images/Towel-Patharnu.jpeg"
+  },
+  {
+    name: "Cream Takiya",
+    description: "Cream Takiya for Guruhari Sinhasan",
+    quantity: 2,
+    category: "Guruhari Use Items",
+    photo: "images/2cream-takiya.jpeg"
+  },
+  {
+    name: "Sinhasan Set (Green)",
+    description: "2 Takiya Round, 2 Pillow Covers with Golden Borders, 2 Pillow Covers.",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photo: "images/sinhasan-set-green.jpeg"
+  },
+  {
+    name: "Takiya/Gaadi (Blue)",
+    description: "1 Gaadi 2x2 Feet, 4 Square Takiya",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photo: "images/takiya-gaadi-blue.jpeg"
+  },
+  {
+    name: "Chair Set",
+    description: "1 Pink Back Pillow, 1 Towel, 2 Chair Covers, 1 Charan-Asan",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photo: "images/cahir-set.jpeg"
+  },
+  {
+    name: "Foot Rest",
+    description: "3x2 feet foot rest, orange color",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photo: "images/feet-rest.jpeg"
+  },
+  {
+    name: "Guruhari Thal Set",
+    description: "Dish, 2 Glass, Lid, Flower Dish.",
+    quantity: 1,
+    category: "Thaal",
+    photo: "images/thal-set1.jpeg"
+  },
+  {
+    name: "Guruhari Thal Set",
+    description: "Dish, 5 Glass, 5 Spoons, 1 Fork, 7 Vadki, 2 dish for fruit and 3 Dish for Roti, 1 Lid for Glass.",
+    quantity: 1,
+    category: "Thaal",
+    photo: "images/thal-set2.jpeg"
+  },
+  {
+    name: "Guruhari Thal Set",
+    description: "Dish, 4 Spoon, 4 Fork, 2 Small Glass, 2 Medium Glass, 2 Large Glass, 2 Lid, 1 Vadki. - 2 Small Glass and 2 Lid for Shaheed Nivas (Sarvapriyabhai has taken)",
+    quantity: 1,
+    category: "Thaal",
+    photo: "images/thal-set3.jpeg"
+  },
+  {
+    name: "Guruhari Thal Set",
+    description: "Petti ni Andar (2 Dish, 3 Vadki, 6 New spoon, 2 Glass).",
+    quantity: 1,
+    category: "Thaal",
+    photo: "images/thal-set4.jpeg"
+  },
+  {
+    name: "Rumal",
+    description: "Hand Napkin for Santo to use for Thaal",
+    quantity: 6,
+    category: "Others",
+    photo: "images/rumal.jpg"
+  }
+];
+
+/* ===========================================================================
+   You don't need to change anything below this line.
+   =========================================================================== */
+
+const grid    = document.getElementById("grid");
+const empty   = document.getElementById("empty");
+const search  = document.getElementById("search");
+const tabsNav = document.getElementById("tabs");
+
+document.getElementById("siteTitle").textContent = SITE_TITLE;
+document.getElementById("eyebrow").textContent   = SITE_SUBTITLE;
+document.title = SITE_TITLE + " · " + SITE_SUBTITLE;
+
+const totalQty = PRODUCTS.reduce((sum, p) => sum + (Number(p.quantity) || 0), 0);
+document.getElementById("stats").innerHTML =
+  `<b>${PRODUCTS.length}</b> items &nbsp;·&nbsp; <b>${totalQty}</b> in total`;
+
+let activeCategory = "All";
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => (
+    { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]
+  ));
+}
+
+// Build the tab buttons: "All" first, then each category.
+["All", ...CATEGORIES].forEach(cat => {
+  const btn = document.createElement("button");
+  btn.className = "tab" + (cat === "All" ? " active" : "");
+  btn.textContent = cat;
+  btn.dataset.category = cat;
+  btn.addEventListener("click", () => {
+    activeCategory = cat;
+    document.querySelectorAll(".tab").forEach(t =>
+      t.classList.toggle("active", t.dataset.category === cat)
+    );
+    apply();
+  });
+  tabsNav.appendChild(btn);
+});
+
+// Decide which items to show, based on the active tab AND the search box.
+function currentList() {
+  const q = search.value.trim().toLowerCase();
+  return PRODUCTS.filter(p => {
+    const cat = CATEGORIES.includes(p.category) ? p.category : "Others";
+    const inCategory = activeCategory === "All" || cat === activeCategory;
+    const inSearch =
+      (p.name || "").toLowerCase().includes(q) ||
+      (p.description || "").toLowerCase().includes(q);
+    return inCategory && inSearch;
+  });
+}
+
+function render(list) {
+  grid.innerHTML = list.map((p, i) => {
+    const name   = escapeHtml(p.name || "Untitled");
+    const desc   = escapeHtml(p.description || "");
+    const qty    = Number(p.quantity) || 0;
+    const letter = (p.name || "?").trim().charAt(0).toUpperCase();
+    const photos = getPhotos(p);
+    const src    = escapeHtml(photos[0] || "");
+    const id     = PRODUCTS.indexOf(p);
+
+    return `
+      <article class="item" style="animation-delay:${i * 50}ms"
+               data-id="${id}" role="button" tabindex="0"
+               aria-label="${name} \u2014 view details">
+        <div class="photo-frame" data-letter="${letter}">
+          <img class="photo" src="${src}" alt="${name}" loading="lazy"
+               onerror="this.closest('.photo-frame').classList.add('no-photo')">
+          ${photos.length > 1 ? `<span class="photo-count">${photos.length} photos</span>` : ""}
+        </div>
+        <h2 class="item-name">${name}</h2>
+        ${desc ? `<p class="item-desc">${desc}</p><button class="see-more" type="button">See more</button>` : ""}
+        <span class="qty">Qty&nbsp;<b>${qty}</b></span>
+      </article>`;
+  }).join("");
+
+  const hasItems = list.length > 0;
+  empty.style.display = hasItems ? "none" : "block";
+  grid.style.display  = hasItems ? "grid" : "none";
+}
+
+function getPhotos(p) {
+  // Accepts either "photo" or "photos", and either a single path or a list.
+  const raw = (p.photos != null) ? p.photos : p.photo;
+  const list = Array.isArray(raw) ? raw : (raw ? [raw] : []);
+  return list.filter(Boolean);
+}
+
+// Show the "See more" link only on cards whose description is actually cut off.
+function checkClamps() {
+  grid.querySelectorAll(".item").forEach(card => {
+    const d = card.querySelector(".item-desc");
+    const m = card.querySelector(".see-more");
+    if (!d || !m) return;
+    m.style.display = (d.scrollHeight - d.clientHeight > 1) ? "inline" : "none";
+  });
+}
+
+function apply() { render(currentList()); checkClamps(); }
+
+search.addEventListener("input", apply);
+window.addEventListener("resize", checkClamps);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(checkClamps);
+
+apply();
+
+/* ---------------------------------------------------------------------------
+   Product detail popup: opens when an item is clicked. When an item has
+   several photos, a small gallery (main image + thumbnails) is shown.
+   Closes with the X, by clicking the dark area outside, or by pressing Escape.
+   --------------------------------------------------------------------------- */
+const modal   = document.getElementById("modal");
+const mClose  = document.getElementById("m-close");
+const mFrame  = document.getElementById("m-frame");
+const mPhoto  = document.getElementById("m-photo");
+const mThumbs = document.getElementById("m-thumbs");
+const mActions = document.getElementById("m-actions");
+const mCat    = document.getElementById("m-cat");
+const mName   = document.getElementById("m-name");
+const mDesc   = document.getElementById("m-desc");
+const mQty    = document.getElementById("m-qty");
+let lastFocused = null;
+
+function setMain(src) {
+  if (src) {
+    mFrame.classList.remove("no-photo");
+    mPhoto.onerror = () => mFrame.classList.add("no-photo");
+    mPhoto.src = src;
+  } else {
+    mFrame.classList.add("no-photo");
+    mPhoto.removeAttribute("src");
+  }
+}
+
+// Save an image to the device. Works once the site is hosted (same origin).
+function downloadImage(src) {
+  if (!src) return;
+  const a = document.createElement("a");
+  a.href = src;
+  a.download = (src.split("/").pop() || "photo").split("?")[0];
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+function openModal(p) {
+  if (!p) return;
+  lastFocused = document.activeElement;
+
+  const photos = getPhotos(p);
+  mFrame.dataset.letter = (p.name || "?").trim().charAt(0).toUpperCase();
+
+  let current = photos[0] || "";
+  setMain(current);
+
+  mThumbs.innerHTML = "";
+  if (photos.length > 1) {
+    photos.forEach((src, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "m-thumb" + (i === 0 ? " active" : "");
+      b.innerHTML = `<img src="${src}" alt="">`;
+      b.addEventListener("click", () => {
+        current = src;
+        setMain(src);
+        mThumbs.querySelectorAll(".m-thumb").forEach(t => t.classList.remove("active"));
+        b.classList.add("active");
+      });
+      mThumbs.appendChild(b);
+    });
+    mThumbs.style.display = "flex";
+  } else {
+    mThumbs.style.display = "none";
+  }
+
+  // download button(s): one for the shown photo, plus "all" when there are several
+  mActions.innerHTML = "";
+  if (photos.length) {
+    const one = document.createElement("button");
+    one.type = "button";
+    one.className = "m-download";
+    one.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg> Download photo';
+    one.addEventListener("click", () => downloadImage(current));
+    mActions.appendChild(one);
+
+    if (photos.length > 1) {
+      const all = document.createElement("button");
+      all.type = "button";
+      all.className = "m-download-all";
+      all.textContent = "Download all (" + photos.length + ")";
+      all.addEventListener("click", () => photos.forEach((src, i) => setTimeout(() => downloadImage(src), i * 300)));
+      mActions.appendChild(all);
+    }
+    mActions.style.display = "flex";
+  } else {
+    mActions.style.display = "none";
+  }
+
+  mPhoto.alt = p.name || "";
+  mCat.textContent  = CATEGORIES.includes(p.category) ? p.category : "Others";
+  mName.textContent = p.name || "Untitled";
+
+  if (p.description) { mDesc.textContent = p.description; mDesc.style.display = ""; }
+  else { mDesc.style.display = "none"; }
+
+  mQty.innerHTML = "Qty&nbsp;<b>" + (Number(p.quantity) || 0) + "</b>";
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  mClose.focus();
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  if (lastFocused) lastFocused.focus();
+}
+
+grid.addEventListener("click", (e) => {
+  const card = e.target.closest(".item");
+  if (card) openModal(PRODUCTS[Number(card.dataset.id)]);
+});
+grid.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const card = e.target.closest(".item");
+  if (card) { e.preventDefault(); openModal(PRODUCTS[Number(card.dataset.id)]); }
+});
+
+mClose.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+
+/* ---- Tap the popup photo to view it full size (lightbox) ---- */
+const lightbox = document.getElementById("lightbox");
+const lbImg    = document.getElementById("lb-img");
+
+function openLightbox(src) {
+  if (!src) return;
+  lbImg.src = src;
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+}
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lbImg.removeAttribute("src");
+}
+
+mPhoto.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (!mFrame.classList.contains("no-photo") && mPhoto.getAttribute("src")) openLightbox(mPhoto.src);
+});
+lightbox.addEventListener("click", closeLightbox);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  if (lightbox.classList.contains("open")) { closeLightbox(); return; }
+  if (modal.classList.contains("open")) closeModal();
+});
+</script>
+</body>
+</html>
