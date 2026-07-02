@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HariPrabodham Canada</title>
 
-<!-- Favicon (browser tab icon) — uses the same image as the main logo.
-     Tip: for the sharpest result, add a square PNG named favicon.png to the
-     images folder and change the paths below to "images/favicon.png". -->
-<link rel="icon" type="image/png" href="images/logo.png">
-<link rel="apple-touch-icon" href="images/logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -595,91 +589,224 @@ const PRODUCTS = [
     description: "26 July 2025 na roj Natan Mandir na Bhoomi Poojan Haar",
     quantity: 1,
     category: "Guruhari Prasadi Items",
-    photos: ["images/prasadi-haar1.jpeg", "images/Rumal-Patharnu.jpeg", "images/Towel-Patharnu.jpeg"]
+    photos: ["images/prasadi-haar1.jpeg"]
   },
   {
     name: "Rumal-Patharnu",
     description: "01 August 2025 Ambrish Diksha na roj Thakorji Snan baad, Patharnu and Thakorji Luchelo Rumal.",
     quantity: 1,
     category: "Guruhari Prasadi Items",
-    photo: "images/Rumal-Patharnu.jpeg"
+    photos: ["images/Rumal-Patharnu.jpeg"]
   },
   {
     name: "Towel-Patharnu",
     description: "01 August 2025 Ambrish Diksha na roj Guruhari Snan baad, Patharnu and Guruhari ae Use karelo Towel.",
     quantity: 1,
     category: "Guruhari Prasadi Items",
-    photo: "images/Towel-Patharnu.jpeg"
+    photos: ["images/Towel-Patharnu.jpeg"]
+  },
+  {
+    name: "Chappal",
+    description: "Guruhari Prasadik Chappal - Brown Colored",
+    quantity: 1,
+    category: "Guruhari Prasadi Items",
+    photos: ["images/chappal.jpeg"]
   },
   {
     name: "Cream Takiya",
     description: "Cream Takiya for Guruhari Sinhasan",
     quantity: 2,
     category: "Guruhari Use Items",
-    photo: "images/2cream-takiya.jpeg"
+    photos: ["images/2cream-takiya.jpeg"]
+  },
+  {
+    name: "Pooja Set - Peach",
+    description: "Peach Pooja set (Back pillow, Pooja Aasan(Spunge), Pooja Asan(Godadi), Dandvat Asan)",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/pooja-set-peach.jpeg"]
   },
   {
     name: "Sinhasan Set (Green)",
     description: "2 Takiya Round, 2 Pillow Covers with Golden Borders, 2 Pillow Covers.",
     quantity: 1,
     category: "Guruhari Use Items",
-    photo: "images/sinhasan-set-green.jpeg"
+    photos: ["images/sinhasan-set-green.jpeg"]
   },
   {
     name: "Takiya/Gaadi (Blue)",
     description: "1 Gaadi 2x2 Feet, 4 Square Takiya",
     quantity: 1,
     category: "Guruhari Use Items",
-    photo: "images/takiya-gaadi-blue.jpeg"
+    photos: ["images/takiya-gaadi-blue.jpeg"]
   },
   {
     name: "Chair Set",
-    description: "1 Pink Back Pillow, 1 Towel, 2 Chair Covers, 1 Charan-Asan",
+    description: "1 Pink Back Pillow, 1 Towel, 2 Chair Covers, 1 orange Floor mat",
     quantity: 1,
     category: "Guruhari Use Items",
-    photo: "images/cahir-set.jpeg"
+    photos: ["images/cahir-set.jpeg"]
   },
   {
     name: "Foot Rest",
-    description: "3x2 feet foot rest, orange color",
+    description: "3x2 feet cusioned foot rest, orange color",
     quantity: 1,
     category: "Guruhari Use Items",
-    photo: "images/feet-rest.jpeg"
+    photos: ["images/feet-rest.jpeg"]
   },
   {
-    name: "Guruhari Thal Set",
-    description: "Dish, 2 Glass, Lid, Flower Dish.",
+    name: "Guruhari Chadar & Pillow Set",
+    description: "In Blanket Cover we included (G.H Chadar and Pillow Sets), 2 Extra Chadar",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/gh-chadar-pillow-set.jpeg", "images/extra-chadar.jpeg"]
+  },
+  {
+    name: "Grey Cover",
+    description: "1 Dandvat Cloth, Blue Chaddar, Orange Chadar, Orange Table Cloth, Rubber Mat, Maroon Chaddar",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/grey-cover.jpeg"]
+  },
+  {
+    name: "Back Support Pillow",
+    description: "Orange and Blue Back Support Pillow for Thal & Car",
+    quantity: 2,
+    category: "Guruhari Use Items",
+    photos: ["images/back-support.jpeg", "images/blue-back-gaadi.jpeg"]
+  },
+  {
+    name: "Grey Cover",
+    description: "1 Dandvat Cloth, Blue Chaddar, Orange Chadar, Orange Table Cloth, Rubber Mat, Maroon Chaddar",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/grey-cover.jpeg"]
+  },
+  {
+    name: "Full Pooja Set",
+    description: "1 Pink cover Full Puja set for Guruhari",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/pooja-set.jpeg"]
+  },
+  {
+    name: "Transparent Cover Cream",
+    description: "Inside of transparent plastic cover , 2x Puja set covers , orange pillow cases",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/transparent-cover-cream.jpeg"]
+  },
+  {
+    name: "Transparent Cover Black",
+    description: "Few chadars, pillow casss for Guruhari",
+    quantity: 1,
+    category: "Guruhari Use Items",
+    photos: ["images/transparent-cover-black.jpeg"]
+  },
+  {
+    name: "Comforter",
+    description: "3 Peach Colored Comforter - in transparent bag",
+    quantity: 3,
+    category: "Others",
+    photos: ["images/conforter.jpeg"] 
+  },
+  {
+    name: "Pooja Back Stand",
+    description: "Orange Pooja Back Stand for Guruhari",
+    quantity: 1,
+    category: "Others",
+    photos: ["images/pooja-stand.jpeg"] 
+  },
+  {
+    name: "Guruhari Pooja Prasad Set",
+    description: "Silver (1 Dish, 2 Glass, 1 Lid, Flower Dish)",
     quantity: 1,
     category: "Thaal",
-    photo: "images/thal-set1.jpeg"
+    photos: ["images/thal-set1.jpeg", "images/thal-set1(2).jpeg"]
   },
   {
     name: "Guruhari Thal Set",
     description: "Dish, 5 Glass, 5 Spoons, 1 Fork, 7 Vadki, 2 dish for fruit and 3 Dish for Roti, 1 Lid for Glass.",
     quantity: 1,
     category: "Thaal",
-    photo: "images/thal-set2.jpeg"
+    photos: ["images/thal-set2.jpeg"]
   },
   {
     name: "Guruhari Thal Set",
     description: "Dish, 4 Spoon, 4 Fork, 2 Small Glass, 2 Medium Glass, 2 Large Glass, 2 Lid, 1 Vadki. - 2 Small Glass and 2 Lid for Shaheed Nivas (Sarvapriyabhai has taken)",
     quantity: 1,
     category: "Thaal",
-    photo: "images/thal-set3.jpeg"
+    photos: ["images/thal-set3.jpeg"]
   },
   {
     name: "Guruhari Thal Set",
     description: "Petti ni Andar (2 Dish, 3 Vadki, 6 New spoon, 2 Glass).",
     quantity: 1,
     category: "Thaal",
-    photo: "images/thal-set4.jpeg"
+    photos: ["images/thal-set4.jpeg"]
   },
   {
-    name: "Rumal",
-    description: "Hand Napkin for Santo to use for Thaal",
+    name: "New Napkins",
+    description: "New orange Hand Napkins",
     quantity: 6,
     category: "Others",
-    photo: "images/rumal.jpg"
+    photos: ["images/new-napkins.jpeg"]
+  },
+  {
+    name: "Used Napkins",
+    description: "10 Extra Napkins; Used (Peach Color) in Cream Cover",
+    quantity: 10,
+    category: "Others",
+    photos: ["images/used-napkins.jpeg"]
+  },
+  {
+    name: "Chadars",
+    description: "2 White Moti Chadar, 1 Set Orange Chadar, 1 Set Red Chadar, 1 Set of Peach Chadar ",
+    quantity: 5,
+    category: "Others",
+    photos: ["images/white-chadar.jpeg", "images/red-orange-chadar.jpeg", "images/peach-chadar.jpeg"]
+  },
+  {
+    name: "Floor Mats",
+    description: "1 White Floor Mat (2 x 1.5 ft), 2 Brown Floor Mat, 4 Grey-Orange strip Floor Mat",
+    quantity: 7,
+    category: "Others",
+    photos: ["images/white-mat.jpeg", "images/brown-mat.jpeg", "images/orange-mat.jpeg"]
+  },
+  {
+    name: "Pillow Case",
+    description: "1 Blue Pillow case in bag",
+    quantity: 1,
+    category: "Others",
+    photos: ["images/blue-pillow-case.jpeg"]
+  },
+  {
+    name: "Geru Color - Gatariya",
+    description: "1 bag of Geru Color for Gatariya",
+    quantity: 1,
+    category: "Others",
+    photos: ["images/geru-color.jpeg"]
+  },
+  {
+    name: "Pink Pillow",
+    description: "2 Pink Pillow set",
+    quantity: 2,
+    category: "Others",
+    photos: ["images/pink-pillow.jpeg"]
+  },
+  {
+    name: "Peach Pillow",
+    description: "2 Peach Pillow set",
+    quantity: 2,
+    category: "Others",
+    photos: ["images/peach-pillow.jpeg"]
+  },
+  {
+    name: "Pooja Pillow Covers",
+    description: "Square Pooja Pillow Cases, 1 Yellow color, 1 Violet color",
+    quantity: 2,
+    category: "Others",
+    photos: ["images/pooja-pillow.jpeg"] 
   }
 ];
 
